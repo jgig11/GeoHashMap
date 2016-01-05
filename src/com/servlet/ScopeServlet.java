@@ -29,8 +29,12 @@ public class ScopeServlet extends HttpServlet  {
 		//lng:$('#lngX').val(),lat:$('#latY').val()
 		String lng=request.getParameter("lng");
 		String lat=request.getParameter("lat");
-		
-		Integer DISTANCE =Integer.parseInt(arrCode);
+		Integer DISTANCE=null;
+		try {
+			DISTANCE = Integer.parseInt(arrCode);
+		}catch (Exception e){
+			DISTANCE=4000;
+		}
 		if(DISTANCE==null||DISTANCE<0){
 			DISTANCE=4000;
 		}
