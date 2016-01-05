@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>geoHashMap</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>com.servlet.MyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/geoHashMap/MyServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>init</servlet-name>
+    <servlet-class>com.servlet.InitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>init</servlet-name>
+    <url-pattern>/geoHashMap/init</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>convert</servlet-name>
+    <servlet-class>com.servlet.ConvertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>convert</servlet-name>
+    <url-pattern>/geoHashMap/convert</url-pattern>
+  </servlet-mapping>
+      <servlet>
+    <servlet-name>scope</servlet-name>
+    <servlet-class>com.servlet.ScopeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>convert</servlet-name>
+    <url-pattern>/geoHashMap/scope</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>

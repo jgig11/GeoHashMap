@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>Geohash</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=您申请的key值"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+   
+  <div class="button-group">
+  <div>
+        地图经纬度坐标：(<b>鼠标左键在地图上单击获取经纬度坐标</b>)<br>
+        lng:<input type="text" id="lngX" name="lngX" />
+		lat:<input type="text" id="latY" name="latY" /><br>
+  </div>
+</div>
+<script>
+
+
+
+
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        center: [117.392957, 39.160411],//地图中心点
+        zoom: 15
+    });
+  
+     var $= function(elementId){
+        return document.getElementById(elementId);
+    };
+    var lngX = $('lngX'),latY = $('latY');
+    var pixelX = $('pixelx'),pixelY = $('pixely');
+    map.on( 'click',  function (e) {
+        lngX.value = e.lnglat.getLng();
+        latY.value = e.lnglat.getLat();
+    }); 
+    //wwgqz0
+    var polygonArr0 = [[117.38892,39.15527],[117.37793,39.15527],[117.37793,39.16077 ],[117.38892,39.16077 ]]
+    //wwgqz1
+    var polygonArr1 = [[117.38892,39.16626],[117.37793,39.16626],[117.37793,39.16077 ],[117.38892,39.16077 ]]
+    //wwgqz2
+    var polygonArr2 = [[117.3999,39.15527],[117.38892,39.15527],[117.38892,39.16077],[117.3999,39.16077]]
+    //wwgqz3
+    var polygonArr3 = [[117.3999,39.16626],[117.38892,39.16626],[117.38892,39.16077],[117.3999,39.16077]]
+    //wwgqz4
+    var polygonArr4 = [[117.37793,39.16626],[117.38892,39.16626],[117.38892,39.17175],[117.37793,39.17175]]
+    //wwgqz5 
+    var polygonArr5 = [[117.37793,39.17725],[117.38892,39.17725],[117.38892,39.17175],[117.37793,39.17175]] 
+    //wwgqz6
+    var polygonArr6 = [[117.3999,39.16626],[117.38892,39.16626],[117.38892,39.17175],[117.3999,39.17175]] 
+	//wwgqz7
+    var polygonArr7 = [[117.3999,39.17725],[117.38892,39.17725],[117.38892,39.17175],[117.3999,39.17175]] 
+    //wwgqz8
+    var polygonArr8 = [[117.3999,39.15527],[117.41089,39.15527],[117.41089,39.16077],[117.3999,39.16077]] 
+	//wwgqz9    
+	var polygonArr9 = [[117.3999,39.16626],[117.41089,39.16626],[117.41089,39.16077],[117.3999,39.16077]]
+	
+    var polygon0 = new AMap.Polygon({path: polygonArr0,strokeColor: "#0000ff",strokeOpacity: 1,strokeWeight: 3,fillColor: "#1791fc",fillOpacity: 0.35});
+    var polygon1 = new AMap.Polygon({path: polygonArr1,strokeColor: "#0000ff",strokeOpacity: 1,strokeWeight: 3,fillColor: "#1791fc",fillOpacity: 0.35});
+    var polygon2 = new AMap.Polygon({path: polygonArr2,strokeColor: "#0000ff",strokeOpacity: 1,strokeWeight: 3,fillColor: "#1791fc",fillOpacity: 0.35});
+    var polygon3 = new AMap.Polygon({path: polygonArr3,strokeColor: "#0000ff",strokeOpacity: 1,strokeWeight: 3,fillColor: "#1791fc",fillOpacity: 0.35});
+    var polygon4 = new AMap.Polygon({path: polygonArr4,strokeColor: "#0000ff",strokeOpacity: 1,strokeWeight: 3,fillColor: "#1791fc",fillOpacity: 0.35});
+    var polygon5 = new AMap.Polygon({path: polygonArr5,strokeColor: "#0000ff",strokeOpacity: 1,strokeWeight: 3,fillColor: "#1791fc",fillOpacity: 0.35});
+    var polygon6 = new AMap.Polygon({path: polygonArr6,strokeColor: "#0000ff",strokeOpacity: 1,strokeWeight: 3,fillColor: "#1791fc",fillOpacity: 0.35});
+    var polygon7 = new AMap.Polygon({path: polygonArr7,strokeColor: "#0000ff",strokeOpacity: 1,strokeWeight: 3,fillColor: "#1791fc",fillOpacity: 0.35});
+    var polygon8 = new AMap.Polygon({path: polygonArr8,strokeColor: "#0000ff",strokeOpacity: 1,strokeWeight: 3,fillColor: "#1791fc",fillOpacity: 0.35});
+    var polygon9 = new AMap.Polygon({path: polygonArr9,strokeColor: "#0000ff",strokeOpacity: 1,strokeWeight: 3,fillColor: "#1791fc",fillOpacity: 0.35});
+
+    var marker0 = new AMap.Marker({map: map,position: [117.3834228515625,39.15802001953125],offset: new AMap.Pixel(-20,-10 ),draggable: false,content: 'wwgqz0'});
+    var marker1 = new AMap.Marker({map: map,position: [117.3834228515625,39.16351318359375],offset: new AMap.Pixel(-20,-10 ),draggable: false,content: 'wwgqz1'});
+    var marker2 = new AMap.Marker({map: map,position: [117.3944091796875,39.15802001953125],offset: new AMap.Pixel(-20,-10 ),draggable: false,content: 'wwgqz2'});
+    var marker3 = new AMap.Marker({map: map,position: [117.3944091796875,39.16351318359375],offset: new AMap.Pixel(-20,-10 ),draggable: false,content: 'wwgqz3'});
+    var marker4 = new AMap.Marker({map: map,position: [117.3834228515625,39.16900634765625],offset: new AMap.Pixel(-20,-10 ),draggable: false,content: 'wwgqz4'});
+    var marker5 = new AMap.Marker({map: map,position: [117.3834228515625,39.17449951171875],offset: new AMap.Pixel(-20,-10 ),draggable: false,content: 'wwgqz5'});
+    var marker6 = new AMap.Marker({map: map,position: [117.3944091796875,39.16900634765625],offset: new AMap.Pixel(-20,-10 ),draggable: false,content: 'wwgqz6'});
+    var marker7 = new AMap.Marker({map: map,position: [117.3944091796875,39.17449951171875],offset: new AMap.Pixel(-20,-10 ),draggable: false,content: 'wwgqz7'});
+    var marker8 = new AMap.Marker({map: map,position: [117.4053955078125,39.15802001953125],offset: new AMap.Pixel(-20,-10 ),draggable: false,content: 'wwgqz8'});
+    var marker9 = new AMap.Marker({map: map,position: [117.4053955078125,39.16351318359375],offset: new AMap.Pixel(-20,-10 ),draggable: false,content: 'wwgqz9'});
+
+    polygon0.setMap(map);
+    polygon1.setMap(map);
+    polygon2.setMap(map);
+    polygon3.setMap(map);
+    polygon4.setMap(map);
+    polygon5.setMap(map);
+    polygon6.setMap(map);
+    polygon7.setMap(map);
+    polygon8.setMap(map);
+    polygon9.setMap(map);
+    
+  	polygon0.on( 'click',  function (e) {
+  		$.ajax({
+  			type : "get",
+  			url : basePath+"/MyServlet",
+  			dataType : "json",
+  			data : { code : "1"},
+  			async : false,
+  			success : function(data){
+  					alert("执行成功");
+  			}
+  		});
+  		}
+  	); 
+  	
+  	
+    polygon1.on( 'click',  function (e) {lngX.value = e.lnglat.getLng();latY.value = e.lnglat.getLat();}); 
+    polygon2.on( 'click',  function (e) {lngX.value = e.lnglat.getLng();latY.value = e.lnglat.getLat();}); 
+    polygon3.on( 'click',  function (e) {lngX.value = e.lnglat.getLng();latY.value = e.lnglat.getLat();}); 
+    polygon4.on( 'click',  function (e) {lngX.value = e.lnglat.getLng();latY.value = e.lnglat.getLat();}); 
+    polygon5.on( 'click',  function (e) {lngX.value = e.lnglat.getLng();latY.value = e.lnglat.getLat();}); 
+    polygon6.on( 'click',  function (e) {lngX.value = e.lnglat.getLng();latY.value = e.lnglat.getLat();}); 
+    polygon7.on( 'click',  function (e) {lngX.value = e.lnglat.getLng();latY.value = e.lnglat.getLat();}); 
+    polygon8.on( 'click',  function (e) {lngX.value = e.lnglat.getLng();latY.value = e.lnglat.getLat();}); 
+    polygon9.on( 'click',  function (e) {lngX.value = e.lnglat.getLng();latY.value = e.lnglat.getLat();}); 
+    
+</script>
+
+</body>
+</html>
