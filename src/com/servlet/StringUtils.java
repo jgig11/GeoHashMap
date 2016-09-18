@@ -26,8 +26,6 @@ public class StringUtils {
 	            lookup.put(c, i++);
 	        }
 	    }
-	  //wwgqw0——wwgqzz
-		  
 	  static String _startCode1="wwgq";
 	  String _buffCode="";
 	  String[] _reutrnCode =new String[32];
@@ -100,10 +98,6 @@ public class StringUtils {
 		      double lonmax = latlon[3];
 			  double latmid = (latmin+latmax)/2;
 		      double lonmid = (lonmin+lonmax)/2;
-		      
-//		      if(s1.equals(centercode)){
-//		    	  centerLat="["+lonmid+","+latmid+"]"; 
-//		      }
 			  map1.put("latlon", returnstr[k]);
 			  map1.put("marker", s1);
 			  map1.put("mid", "["+lonmid+","+latmid+"]");

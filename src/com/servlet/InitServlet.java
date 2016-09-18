@@ -32,7 +32,6 @@ public class InitServlet extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String arrCode=request.getParameter("arr");
-		//lng:$('#lngX').val(),lat:$('#latY').val()
 		String lng=request.getParameter("lng");
 		String lat=request.getParameter("lat");
 		

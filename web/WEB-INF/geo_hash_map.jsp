@@ -21,139 +21,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div id="container"></div>
 
-
- 
-
-
-   
   <div class="button-group">
-  <span>  
+  <span>
   Geohash:<input type="text" id="content" name="content" />
-  <input type="button" id="button" value="init" onclick="init()"/> <input type="button" id="button" value="des" onclick="des()"/><input type="button" id="button" value="scope" onclick="scope()"/></span>
-  
+	  <input type="button" id="init" value="init" onclick="init()"/>
+	  <input type="button" id="des" value="des" onclick="des()"/>
+	  <input type="button" id="scope" value="scope" onclick="scope()"/></span>
   <div>
-        lng:<input type="text" id="lngX" name="lngX" />lat:<input type="text" id="latY" name="latY" /><input type="button" id="button" value="convert" onclick="convert()"/><input type="button" id="button" value="reset" onclick="reset()"/><br>
+        lng:<input type="text" id="lngX" name="lngX" />
+	    lat:<input type="text" id="latY" name="latY" />
+	    <input type="button" id="convert" value="convert" onclick="convert()"/>
+	    <input type="button" id="reset" value="reset" onclick="reset()"/><br>
   </div>
 </div>
 
+<script type="application/javascript" src="js/mapUtils.js"></script>
 <script>
-var local = window.location;  
-var contextPath = local.pathname.split("/")[1];  
-var basePath = local.protocol+"//"+local.host+"/"+contextPath;  
-var center=[117.392957, 39.160411];
-   function init(){
-    	$.ajax({
-  			type : "get",
-  			url : basePath+"/init",
-  			dataType : "json",
-  			data : { arr : $("#content").val(),lng:$('#lngX').val(),lat:$('#latY').val()},
-  			async : false,
-  			success : function(data){
-  				map(data);
-  			}
-  		});
-    }
-   function scope(){
-	  if($('#lngX').val()==""){
-		  alert("please click map get latitude-longitude first!");
-	  }
-   	$.ajax({
- 			type : "get",
- 			url : basePath+"/scope",
- 			dataType : "json",
- 			data : { arr : $("#content").val(),lng:$('#lngX').val(),lat:$('#latY').val()},
- 			async : false,
- 			success : function(data){
- 				map(data);
- 			}
- 		});
-   }
-   
-   function convert(){
-	   
-   	$.ajax({
- 			type : "get",
- 			url : basePath+"/convert",
- 			dataType : "text",
- 			data : {lng:$('#lngX').val(),lat:$('#latY').val()},
- 			async : false,
- 			success : function(data){
- 				 $('#content').val(data);
- 			}
- 		});
-   }
-   function des(){
-	   $("#content").val(null);
-	   $('#lngX').val(null);
-	   $('#latY').val(null);
-	   var map = new AMap.Map('container', {
-	       resizeEnable: true,
-	       center: center,//地图中心点
-	       zoom: 15
-	   });
-	   var lngX = $('#lngX'),latY = $('#latY');
-	   map.on( 'click',  function (e) {
-		   $('#lngX').val(e.lnglat.getLng());
-		   $('#latY').val(e.lnglat.getLat());
-	   });
-   }
-   function reset(){
-	   $('#lngX').val(null);
-	   $('#latY').val(null);
-   }
-   function map(data){
-	   center =eval(data.center);
-	   var map = new AMap.Map('container', {
-	       resizeEnable: true,
-	       center: center ,//地图中心点
-	       zoom: 15
-	   });
-	   var lngX = $('#lngX'),latY = $('#latY');
-	   map.on( 'click',  function (e) {
-		   $('#lngX').val(e.lnglat.getLng());
-		   $('#latY').val(e.lnglat.getLat());
-	   });
-	   var list=data.list;
-	   $(list).each(function(i,obj){
-		var Polygon=  new AMap.Polygon(
-				  {
-			    	path: eval(obj.latlon),
-			    	strokeColor: "#00ffff",
-			    	strokeOpacity: 1,
-			    	strokeWeight: 1,
-			    	fillColor: "#1791fc",
-			    	fillOpacity: 0.25
-	    		});
-		Polygon.setMap(map);
-		Polygon.on( 'click',  function (e) {
-			   $('#lngX').val(e.lnglat.getLng());
-			   $('#latY').val(e.lnglat.getLat());
-			}); 
-		  new AMap.Marker(
-				  {
-				  map: map,position: eval(obj.mid),
-				  offset: new AMap.Pixel(-20,-10 ),
-				  draggable: false,
-				  content: list[i].marker
-				 }
-			);
-	
-	   });
-	 
-   } 
-   $(document).ready(function(){
-	   var map = new AMap.Map('container', {
-		    resizeEnable: true,
-		    center: center,//地图中心点
-		    zoom: 15
-		});
-		var lngX = $('#lngX'),latY = $('#latY');
-		map.on( 'click',  function (e) {
-			   $('#lngX').val(e.lnglat.getLng());
-			   $('#latY').val(e.lnglat.getLat());
-		});
-   });
-   
+
 </script>
 </body>
 </html>
